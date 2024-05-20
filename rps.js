@@ -2,11 +2,10 @@ function playGame() {
     let round = 1; 
     let humanScore = 0; 
     let computerScore = 0;
-    let computerChoice, humanChoice;
     while (round < 6) {
         console.log(`Round: ${round}`);
-        computerChoice = Math.floor(Math.random() * (4 - 1) + 1);
-        humanChoice = getHumanChoice();
+        let computerChoice = Math.floor(Math.random() * (4 - 1) + 1);
+        let humanChoice = getHumanChoice();
         let scoreUpdate = roundWinner(computerChoice, computerScore, humanChoice, humanScore);
         computerScore = scoreUpdate[0];
         humanScore = scoreUpdate[1];
@@ -14,11 +13,10 @@ function playGame() {
         round++;
     }
     console.log("~GAME OVER~");
-    gameWinner(humanScore, computerScore);  
-    return;    
+    gameWinner(humanScore, computerScore);   
+    return;
 }
 
-// get human choice (input)
 function getHumanChoice() {
     while (true) {
         stringChoice = prompt("What is your choice?:");
@@ -37,7 +35,6 @@ function getHumanChoice() {
     }
 }
 
-// find round winner
 function roundWinner(computerChoice, computerScore, humanChoice, humanScore) {
     switch(computerChoice) {
         case 1:
@@ -93,6 +90,7 @@ function gameWinner (humanScore, computerScore) {
         console.log("You lose the game...")
     }
     else console.log("The game is tied.")
+    return;
 }
 
 
